@@ -1,0 +1,278 @@
+\documentclass[12pt]{book}
+\usepackage{amsmath}
+\usepackage{gensymb}
+\usepackage[pdftex]{hyperref}
+\usepackage{hyperref}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{lmodern}
+\usepackage{titlesec}
+\usepackage{microtype}
+\usepackage{scalerel,xparse}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{amstext}
+\usepackage[T1]{fontenc}
+\usepackage[brazil,brazilian]{babel}
+%\usepackage{showkeys}
+\usepackage{color}
+\NewDocumentCommand\bird{}{
+    \includegraphics[scale=0.14]{../../../LaTeX/Imagens/house.jpg}
+}
+\usepackage{caption}
+\def\pre{\textcolor[rgb]{1,0.501961,0}{\textbf{Prêmio:\,}}}
+\def\so{\text{ \textbf{Solução:\,}}}
+\def\res{\text{ \textbf{Resposta:\,}}}
+\def\reso{\text{\textcolor[rgb]{0,0.501961,0.501961}{\textbf{Resolva a questão: }} }}
+\def\lef{\left\{}
+\def\lp{\lfloor}
+\def\rp{\rfloor}
+\def\mb{\text}
+\def\bra{\langle}
+\def\ket{\rangle}
+\def\autor{Rodrigo Carlos Silva de Lima\\ \href{rodrigo.uff.math@gmail.com}{rodrigo.uff.math@gmail.com}\\\href{https://apoia.se/atelierdesonhos}{https://apoia.se/atelierdesonhos}}
+\def\f{\varphi}
+\def\li{\lim\limits_{n\rar \F}}
+\def\de{\displaystyle}
+\def\eq{\Leftrightarrow}
+\def\p{\partial}
+\def\va{\emptyset}
+\def\es{\qquad}
+\def\ta{\theta}
+\def\ga{\gamma}
+\def\g{^{\circ}}
+\def\tr{\triangle}
+\def\sm{\small}
+\def\fs{\footnotesize}
+\def\ns{\normalsize}
+\def\T{\times}
+\def\mc{$\text{ modificador de carisma } $}
+\def\I{\item}
+\def\m{\mu}
+\def\oulo{\lor}
+\def\elo{\wedge}
+\def\F{\infty}
+\def\C{\cdot}
+\def\le{\left}
+\def\ri{\right}
+\def\n{\nu}
+\def\N{\nabla}
+\def\Om{\Omega}
+\def\om{\omega}
+\def\na{{\mathbb{N}}}
+\def\a{\alpha}
+\def\lf{\lfloor}
+\def\rf{\rfloor}
+\def\e{\epsilon}
+\def\ve{\varepsilon}
+\def\ex{\exists}
+\def\b{\beta}
+\def\Ra{\Rightarrow}
+\def\re{\mathbb{R}}
+\def\s{\subset}
+\def\rar{\rightarrow}
+\def\D{\Delta}
+\def\fa{\forall \;}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+%\newtheorem{ques}{\textcolor[rgb]{0.00,0.25,0.25}{ {\Large \Writinghand}Questão}}
+\usepackage{bookman}
+\usepackage{gfsartemisia-euler}
+\usepackage{eulervm}
+\usepackage{pst-all}
+\usepackage{pstricks-add}
+\usepackage{pstricks}
+\usepackage{auto-pst-pdf}
+\usepackage{tikz}
+\usepackage{shadethm}
+\usepackage{mdframed}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{tikzsymbols}
+\usepackage{amssymb,amsmath}
+\usepackage{color}
+\usepackage{textcomp}
+\usepackage{cancel}
+\makeatletter
+\DeclareFontFamily{U}{tipa}{}
+\DeclareFontShape{U}{tipa}{m}{n}{<->tipa10}{}
+\newcommand{\arc@char}{{\usefont{U}{tipa}{m}{n}\symbol{62}}}%
+
+\newcommand{\arc}[1]{\mathpalette\arc@arc{#1}}
+
+\newcommand{\arc@arc}[2]{%
+  \sbox0{$\m@th#1#2$}%
+  \vbox{
+    \hbox{\resizebox{\wd0}{\height}{\arc@char}}
+    \nointerlineskip
+    \box0
+  }%
+}
+\makeatother
+\usepackage{graphicx}
+\newtheorem{obs}{ {\Large \Emailct} Observação}
+\newtheorem{dica}{ {\Large \Emailct} Dica de Solução}
+\usepackage{float}
+\usepackage[colorlinks,linkcolor=blue,hyperindex]{hyperref}
+\newmdtheoremenv[
+  hidealllines=true,
+  roundcorner=12pt,
+  innerleftmargin=8pt,%
+  innerrightmargin=8pt,%
+  innertopmargin=0pt,%
+  innerbottommargin=2pt,%
+  backgroundcolor=gray!0,%
+  skipbelow=\baselineskip,%
+  skipabove=\baselineskip,
+  shadow=true,
+  topline = true, rightline = true,
+leftline = true, bottomline = true]{defi}{ \textcolor[RGB]{0,82,155}{ \bird  Definição }}
+\renewcommand{\proof}{ \textbf{\textcolor[RGB]{0,82,155}{ { \Aquarius}  Demonstração}}.}
+\hypersetup{colorlinks=true, raiselinks=false, anchorcolor=green,
+linkcolor=blue, %%% cor do tableofcontents, \ref, \footnote, etc
+citecolor=blue, %%% cor do \cite
+urlcolor=blue, %%% cor do \url e \href
+}
+\newmdtheoremenv[
+  hidealllines=true,
+  roundcorner=12pt,
+  innerleftmargin=8pt,%
+  innerrightmargin=8pt,%
+  innertopmargin=0pt,%
+  innerbottommargin=2pt,%
+  backgroundcolor=gray!0,%
+  skipbelow=\baselineskip,%
+  skipabove=\baselineskip,
+  shadow=false,
+  topline = true, rightline = true,
+leftline = true, bottomline = true]{cor}{\textcolor[RGB]{0,128,128}{ {\large \leftmoon} Corolário}}
+\newmdtheoremenv[
+  hidealllines=true,
+  roundcorner=12pt,
+  innerleftmargin=8pt,%
+  innerrightmargin=8pt,%
+  innertopmargin=0pt,%
+  innerbottommargin=2pt,%
+  backgroundcolor=gray!0,%
+  skipbelow=\baselineskip,%
+  skipabove=\baselineskip,
+  shadow=false,
+  topline = true, rightline = true,
+leftline = true, bottomline = true]{exem}{\textcolor[RGB]{0,128,128}{{ \LARGE \Pointinghand}  Exemplo}}
+\newtheorem{lema}{ {$\clubsuit$} Lema}
+\newtheorem{conje}{\textcolor[RGB]{0,82,155}{ {\Large \Writinghand  } Conjectura}}
+\newtheorem{axioma}{\textcolor[RGB]{0,82,155}{{\Celtcross} Axioma}}
+\newmdtheoremenv[
+  hidealllines=true,
+  roundcorner=12pt,
+  innerleftmargin=8pt,%
+  innerrightmargin=8pt,%
+  innertopmargin=0pt,%
+  innerbottommargin=2pt,%
+  backgroundcolor=gray!12,%
+  skipbelow=\baselineskip,%
+  skipabove=\baselineskip,
+  shadow=false,
+  topline = true, rightline = false,
+leftline = false, bottomline = true]{propi}{ \textcolor[RGB]{0,0,0}{ {\Large \Writinghand  } Propriedade} }
+\newmdtheoremenv[
+  hidealllines=true,
+  roundcorner=12pt,
+  innerleftmargin=8pt,%
+  innerrightmargin=8pt,%
+  innertopmargin=0pt,%
+  innerbottommargin=2pt,%
+  backgroundcolor=gray!12,%
+  skipbelow=\baselineskip,%
+  skipabove=\baselineskip,
+  shadow=false,
+  topline = true, rightline = false,
+leftline = false, bottomline = true]{descri}{ \textcolor[rgb]{0.00,0.25,0.25}{ {\Large \Writinghand  } Descrição} }
+\newmdtheoremenv[
+  hidealllines=true,
+  roundcorner=12pt,
+  innerleftmargin=8pt,%
+  innerrightmargin=8pt,%
+  innertopmargin=0pt,%
+  innerbottommargin=2pt,%
+  backgroundcolor=gray!12,%
+  skipbelow=\baselineskip,%
+  skipabove=\baselineskip,
+  shadow=false,
+  topline = true, rightline = false,
+leftline = false, bottomline = true]{ops}{ \textcolor[rgb]{0.00,0.25,0.25}{ {\Large \Writinghand  } Opções} }
+\newmdtheoremenv[
+  hidealllines=true,
+  roundcorner=12pt,
+  innerleftmargin=8pt,%
+  innerrightmargin=8pt,%
+  innertopmargin=0pt,%
+  innerbottommargin=2pt,%
+  backgroundcolor=gray!12,%
+  skipbelow=\baselineskip,%
+  skipabove=\baselineskip,
+  shadow=false,
+  topline = true, rightline = false,
+leftline = false, bottomline = true]{cen}{ \textcolor[rgb]{0.00,0.25,0.25}{ {\Large \Writinghand  } Cenário} }
+\newmdtheoremenv[
+  hidealllines=true,
+  roundcorner=12pt,
+  innerleftmargin=8pt,%
+  innerrightmargin=8pt,%
+  innertopmargin=0pt,%
+  innerbottommargin=2pt,%
+  backgroundcolor=gray!0,%
+  skipbelow=\baselineskip,%
+  skipabove=\baselineskip,
+  shadow=true,
+  topline = true, rightline = true,
+leftline = true, bottomline = true]{hm}{ \textcolor[rgb]{0.00,0.25,0.50}{ {\Large\Mundus} História }}
+\newmdtheoremenv[
+  hidealllines=true,
+  roundcorner=12pt,
+  innerleftmargin=8pt,%
+  innerrightmargin=8pt,%
+  innertopmargin=0pt,%
+  innerbottommargin=2pt,%
+  backgroundcolor=gray!0,%
+  skipbelow=\baselineskip,%
+  skipabove=\baselineskip,
+  shadow=true,
+  topline = true, rightline = true,
+leftline = true, bottomline = true]{comb}{ \textcolor[rgb]{0.00,0.25,0.50}{ {\Large\Mundus} Combate }}
+\usepackage{makeidx}
+\def\d{\displaystyle}
+\def\de{\displaystyle}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{graphicx}
+\newmdtheoremenv[
+  hidealllines=true,
+  roundcorner=12pt,
+  innerleftmargin=8pt,%
+  innerrightmargin=8pt,%
+  innertopmargin=0pt,%
+  innerbottommargin=2pt,%
+  backgroundcolor=gray!12,%
+  skipbelow=\baselineskip,%
+  skipabove=\baselineskip,
+  shadow=false,
+  topline = true, rightline = false,
+leftline = false, bottomline = true]{teo}{\textcolor[RGB]{0,0,0}{ {\Large \Writinghand  }Teorema }}
+\newtheorem{ques}{\textcolor[RGB]{0,82,155}{ {\Large \Writinghand  } Questão}}
+\renewcommand{\rmdefault}{@georgia}
+\renewcommand{\rmdefault}{@ink@free}
+\renewcommand{\rmdefault}{@georgia}
+\renewcommand{\rmdefault}{artemisia}
+\renewcommand{\rmdefault}{@georgia}
+\renewcommand{\rmdefault}{artemisia}
+\renewcommand{\rmdefault}{@georgia}
+\renewcommand{\rmdefault}{fac}
+\renewcommand{\rmdefault}{Alegreya-LF}
+%Comandos
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+            

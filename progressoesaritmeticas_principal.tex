@@ -1,0 +1,910 @@
+%&latex
+%!TeX-Template-1.0: Para aulas privadas
+%&latex
+%
+
+\input{../../../LaTeX/def}
+\documentclass[12pt]{book}
+\usepackage{amstext}
+
+\usepackage[T1]{fontenc}
+\usepackage[brazil,brazilian]{babel}
+\usepackage{amssymb}
+\usepackage{hyperref}
+
+\begin{document}
+
+%+Title
+\title{\Huge\bf Anotações e Comentários Sobre Progressões Aritméticas }
+\author{\autor}
+\date{\today}
+\maketitle
+%-Title
+
+%+Contents
+\tableofcontents
+%+Contents
+
+%+Make Parts
+%\part{First Part}
+%-Make Parts
+
+
+
+
+\chapter{Progressões Aritméticas}
+
+\large
+Esse texto ainda não se encontra na sua versão final,
+sendo, por enquanto, constituído apenas de anotações informais.
+ Sugestões para melhoria do texto, correções da parte Matemática ou
+ gramatical, ou alguma adição que acharia interessante eu agradeceria que fossem enviadas para meu
+ e-mail \href{rodrigo.uff.math@gmail.com}{rodrigo.uff.math@gmail.com}. Um grande abraço!
+\section{Licença}
+Progressões Aritméticas \copyright 2024 by Rodrigo Carlos Silva de Lima is licensed under Attribution-NonCommercial 4.0 International. 
+
+Esta licença exige que os reutilizadores dêem crédito ao criador. Ele permite que  distribuam, remixem, adaptem e desenvolvam o material em qualquer meio ou formato, apenas para fins não comerciais.
+\begin{itemize}
+\item Lima, Rodrigo. ``Progressões Aritméticas'', 2024,\\\begin{small}\href{https://apoia.se/atelierdesonhos/contents/view/Progressoes-Aritmeticas-DrdHg9VCk?page=1\#1}{https://apoia.se/atelierdesonhos/contents/view/Progressoes-Aritmeticas-DrdHg9VCk?page=1\#1}\end{small},  licenciado sob  CC BY-NC 4.0.
+\end{itemize}
+Você é livre para:
+\begin{itemize}
+\item 
+\textbf{Compartilhar} - copie e redistribua o material em qualquer meio ou formato
+\I \textbf{Adaptar} - remixar, transformar e desenvolver o material
+O licenciante não pode revogar essas liberdades desde que você siga os termos da licença.
+Nos seguintes termos:
+\I \textbf{Atribuição} - Você deve dar o devido crédito, fornecer um link para a licença e indicar se foram feitas alterações. Você pode fazê-lo de qualquer maneira razoável, mas   de forma alguma que sugira que o licenciante endossa você ou seu uso.
+\I \textbf{Não Comercial} - Você não pode usar o material para fins comerciais.
+\I \textbf{Sem restrições adicionais} - Você não pode aplicar termos legais ou medidas tecnológicas que restrinjam legalmente outras pessoas de fazerem qualquer coisa que a licença permita.
+\I \textbf{Link da licença:} https://creativecommons.org/licenses/by-nc/4.0/
+\end{itemize}
+
+\section{Notações}
+\begin{defi}[Operador de Diferença]
+Dada uma função $f:\re \rar \re$ definimos o operador $\Delta$ que leva uma função $f:\re \rar \re$ em uma função $\Delta f : \re \rar \re$ dada por
+$$ \Delta f(x) := f(x+1)-f(x).$$
+
+\end{defi}
+\begin{defi}[Potências de $\Delta $]
+Definimos
+$$\Delta ^0 f(x)=f(x)$$
+$$\Delta^{n+1} f(x)= \Delta^n f(x+1) -\Delta^n f(x) $$
+para $n$ natural.
+\end{defi}
+
+
+\begin{defi}[Operador $E$.]
+Dado $h \in R$ definimos o operador $E^h$ que leva funções  $f:\re\rar \re $ em uma função $E^h f: \re \rar \re$, dada por
+$$E^h f(x)=f(x+h).$$
+
+\end{defi}
+
+Observe que $\Delta f(x)=f(x+1)-f(x)$ então escrevemos $\Delta =E-1.$
+
+
+\begin{defi}[Potência fatorial ]
+Definimos a potência fatorial de passo $h$ e expoente $n$ e base $x$ como
+$$x^{(n,h)}=\prod^{n-1}_{k=0}(x-kh)$$
+
+com $   n \in \na$, $x,h \in R$ .
+\end{defi}
+Com $n=0$ usamos  o produto vazio
+$$x^{(0,h)}=\prod^{-1}_{k=0}(x-kh)=1.$$
+Usaremos em especial o caso de $h=1$
+$$x^{(n,1)}=\prod^{n-1}_{k=0}(x-k).$$
+
+
+\begin{cor}[Interpolação de Newton]
+Vamos deduzir informalmente a fórmula de interpolação de Newton, que permite escreve uma sequência como soma das suas diferenças.
+
+De $\Delta =E-1$ tem-se $\Delta+1=E$, elevando a $n$, tem-se
+$$ E^n=(\Delta+1)^n=\sum^{n}_{k=0}{n \choose k} \Delta^k $$
+aplicando em $f(0)$ tem-se
+$$E^nf(0)=f(n)=\sum^{n}_{k=0}{n \choose k} \Delta^k f(0). $$
+\end{cor}
+
+\begin{defi}[Coeficiente binomial]
+Definimos o coeficiente binomial ${x \choose k}$
+da seguinte maneira
+$${x \choose k}=\frac{x^{(k,1)}}{k!} $$
+para $k$ natural e $x$ real ou complexo.
+
+\end{defi}
+
+
+
+\begin{defi}[Somatório indefinido]
+Um somatório indefinido de $g(x)$ é uma função $f(x)$ tal que $\Delta f(x)=g(x)$, nesse caso escrevemos
+$$\sum_x  g(x)= f(x) $$
+nesse caso vale
+
+$$\sum_{x=a}^b  g(x)= f(b+1)-f(a)=f(x)\bigg]^{b+1}_a . $$
+\end{defi}
+
+
+\begin{propi}
+Vale a propriedade
+$$\sum_xx^{(n,1)} =\frac{x^{(n+1,1)}}{n+1} . $$
+
+\end{propi}
+
+
+\section{Progressões aritm\'eticas de ordem $p$}
+\begin{defi}[Progressão aritmética de ordem $p$.]
+Uma progressão aritm\'etica de ordem $p$ , $p \in \na$, \'e uma sequ\^encia
+$f(n)$ onde tem-se $\Delta^{p}f(n)=r\neq 0\; \fa n \in \na$  para algum $r$ real, tal número $r$ é chamado de razão da progressão . Podemos mostrar %\footnote{Escrevi a demonstra\ccd ão no texto de equa\ccd ões de diferen\ccd as e recorr\^encias}
+que isso implica que $f(n)$ \'e um
+polin\^omio de grau $p$ em $n$, e aplicando mais uma vez o operador
+diferen\ccd a em ambos lados, temos que $\Delta^{p+1}f(n)=0$ e
+assim temos uma recorr\^encia de ordem $p+1$
+ $$f(n+p+1)= \sum^{p}_{k=0}{p+1 \choose k}(-1)^{p-k}f(n+k)$$
+logo precisamos de $p+1$ condi\ccd ões iniciais.
+\end{defi}
+
+Neste texto tomaremos como primeiro termo da progressão o termo
+$f(0)$ e não $f(1)$ isso \'e feito pois simplificar as f\'ormulas
+gerais. Se forem dadas $p+1$ condi\ccd ões iniciais
+$f(0),\dots,f(p)$ isto \'e $f(k)$ com $k$ variando de $0$ at\'e $p$.
+
+
+
+
+
+\begin{propi}[Fórmula geral de uma $P.A$ de ordem $p$.]
+A fórmula geral de uma $P.A$ de ordem $p$ é
+
+$$ f(n)=\sum^{p}_{k=0}{n \choose k}\Delta^{k} f(0)$$
+que é um polinômio de grau $p$ em $n$.
+\end{propi}
+
+
+
+
+
+
+\begin{proof}
+
+
+Podemos achar a f\'ormula geral usando a interpolação.
+Sabemos que $f(n)$ pode ser escrito como
+$$f(n)=\sum^{n}_{k=0}{n \choose k}\Delta^{k} f(0) $$
+como sabemos que os termos a partir de $ \Delta^{p+1}f(0)$ são
+todos zero, se temos $n>p$, $n \in \na$, escrevemos
+$$f(n)=\sum^{n}_{k=0}{n \choose k}\Delta^{k} f(0)=\sum^{p}_{k=0}{n \choose k}\Delta^{k} f(0)+\sum^{n}_{k=p+1}{n \choose k}\Delta^{k} f(0) $$
+em que o segundo membro sempre se anula, pois temos termos com
+coeficiente $\Delta^{s}f(0)$ com $s>p$ e esses termos são todos
+nulos então temos
+$$ f(n)=\sum^{p}_{k=0}{n \choose k}\Delta^{k} f(0).$$
+
+ Se $n<p$ não h\'a problemas em escrever
+$$f(n)=\sum^{p}_{k=0}{n \choose k}\Delta^{k} f(0), $$
+pois podemos abrir o somat\'orio
+$$f(n)=\sum^{p}_{k=0}{n \choose k}\Delta^{k} f(0)=\sum^{n}_{k=0}{n \choose k}\Delta^{k} f(0)+\sum^{p}_{k=n+1}{n \choose k}\Delta^{k} f(0) $$
+onde o segundo somat\'orio \'e zero, pois temos termos da forma ${n
+\choose k}=\frac{n^{(k,1)}}{k!}$ que são zero pra $k$ natural
+maior que $n$, por propriedade de pot\^encias fatoriais, tendo que o
+menor valor de $k$ no somat\'orio a direita \'e $n+1$ que j\'a \'e
+maior que $n$, logo o segundo termo \'e zero. Agora se $p=n$,
+podemos escrever
+$$ f(n)=\sum^{n}_{k=0}{n \choose k}\Delta^{k} f(0)=\sum^{p}_{k=0}{n \choose k}\Delta^{k} f(0)$$
+então em todos casos, podemos escrever
+$$ f(n)=\sum^{p}_{k=0}{n \choose k}\Delta^{k} f(0).$$
+Como temos que $\Delta^{p}f(0)=r$ uma constante diferente de zero,
+temos abrindo o limite superior do somat\'orio
+$$f(n)=\sum^{p-1}_{k=0}{n \choose k}\Delta^{k} f(0)+{n \choose p}\Delta^{p} f(0)=\sum^{p-1}_{k=0}{n \choose k}\Delta^{k} f(0)+\frac{n^{(p,1)}}{p!}r $$
+onde $n^{(p,1)}$ \'e um polin\^omio de grau $p$ em $n$ %, que pode ser
+%visto expandindo em pot\^encia usando n\'umeros de Stirling do
+%primeiro tipo
+. O grau dos termos que ficaram dentro do somat\'orio
+são todo menores que $p$, logo não pode haver termo que anule
+o termo de coeficiente $n^{p}$. Podemos tomar então como
+f\'ormula geral o polin\^omio de grau $p$ em $n$
+$$ f(n)=\sum^{p}_{k=0}{n \choose k}\Delta^{k} f(0).$$
+\end{proof}
+
+
+
+
+\begin{cor}[$P.A$ de ordem zero.]
+Uma $P.A$ de ordem zero é uma sequência $(x_n)$ que satisfaz $\Delta^0 x_n=x_n=c \neq 0$  para alguma constante $c$, então progressões aritméticas de ordem zero são constantes não nulas.
+
+Não definimos a ordem de uma sequência nula $x_n=0$, assim como não definimos grau para o polinômio nulo $0$.
+\end{cor}
+
+
+
+
+
+\begin{propi}
+Se são dadas as $p+1$ condições iniciais $f(k)$ com $k$
+variando de $0$ at\'e $p$, temos o polin\^omio solução .
+
+\end{propi}
+
+\begin{proof}
+Basta mostrar que vamos ter os coeficientes do polin\^omio que são os termos $\Delta^{k} f(0)$ com $k$ variando de $0$ at\'e $p$.
+Temos que $\Delta^{k} f(0)=(E-1)^{k}f(0)=\sum\limits^{k}_{s=0}{ k
+\choose s}(-1)^{k-s}E^{s}f(0)=\sum\limits^{k}_{s=0}{ k \choose
+s}(-1)^{k-s}f(s) $ essa relação diz que para ter
+$\Delta^{k}f(0)$ precisamos dos termos $f(s)$ com $s$ variando de
+$0$ at\'e $k$, como temos $f(s)$ de $s=0$ at\'e $s=p$, isso implica
+que temos $\Delta^{k}f(0)$ de $k=0$ at\'e $k=p$.
+
+\end{proof}
+
+\begin{propi}
+$f$ é uma progressão aritmética de ordem $p \Leftrightarrow$ $f(n)$ é de grau $p$ em $n$.
+
+\end{propi}
+
+
+
+
+
+
+\begin{proof}
+$\Rightarrow ) . $ Já mostramos que  se $f$ é uma progressão aritmética de ordem $p$ então  $f(n)$ é de grau $p$ em $n$ no resultado anterior.
+
+$ \Leftarrow ) .$ Suponha que
+$$f(n)=\sum^{p}_{k=0} a_k n^k $$ com $a_p \neq 0$, fica como o exercício para o leitor provar que
+$$\Delta^p f(n)=a_p \C p!\neq 0\; \fa n \in N $$
+portanto $f(n)$ é uma $P.A$ de ordem $p.$
+
+\end{proof}
+
+
+\begin{propi}
+Seja $f(n)$ uma progressão aritm\'etica de ordem $l$, então existe uma constante $c\neq 0$ tal que
+$$\frac{\Delta^{l-1} f(n)-\Delta^{l-1} f(p)}{n-p}=c $$
+para quaisquer $n \neq p$.
+\end{propi}
+
+\begin{proof}
+Temos
+
+\begin{equation*}
+\begin{array}{lllllllllll}
+\de f(n)=\sum^{l}_{k=0}{n \choose k}c_{k},\;\; \\
+[12pt] \de  \Delta^{l-1}f(n)=\sum^{l}_{k=0}\Delta^{l-1}{n \choose k}c_{k}  =\sum^{l}_{k=0}{n \choose k-l+1}c_{k}=c_{l-1}+n\C c_{l}. \\
+\end{array}
+\end{equation*}%°
+Assim $\Delta^{l-1}f(p)=c_{l-1}+p\C c_{l}$ e temos $\Delta^{l-1}f(n)-\Delta^{l-1}f(p)=c_{l-1}+n.c_{l}-c_{l-1}-p.c_{l}=c_{l}(n-p). $
+
+Logo vale
+$$\frac{\Delta^{l-1} f(n)-\Delta^{l-1} f(p)}{n-p}=c. $$
+
+\end{proof}
+
+\begin{cor}
+ $f$ é progressão de ordem $l$ $\Leftrightarrow$ existe $c \neq 0$ tal que
+ $$\frac{\Delta^{l-1} f(n)-\Delta^{l-1} f(p)}{n-p}=c $$
+ para quaisquer $n\neq p .$
+
+ $\Rightarrow ).$ Já provamos .
+
+ $\Leftarrow .)$ Nesse caso existe $c \neq 0$ tal que
+ $$\frac{\Delta^{l-1} f(n)-\Delta^{l-1} f(p)}{n-p}=c $$
+ portanto, tomando $n=p+1$ tem-se
+ $$\Delta^{l-1} f(p+1)-\Delta^{l-1} f(p)=\Delta^{l}f(p)=c\neq 0 $$
+ daí $f$ é de ordem $n$.
+\end{cor}
+
+
+\begin{propi}
+Se $f$ é progressão de ordem $p$ então $\Delta^s f$ é progressão de ordem $p-s$, onde $0\leq s<p.$
+Em especial se $f$ é progressão de ordem $p+1$ então $\Delta f$ é progressão de ordem $p$.
+
+\end{propi}
+
+
+
+
+
+
+\begin{proof}
+Vale $\Delta^p f(n)=c \neq 0, \fa n$ definindo $g(n)= \Delta^s f(n)$ então $\Delta^{p-s} g(n)= \Delta^{p-s} \Delta^s f(n)= \Delta^p f(n)=c \neq 0, \fa n $ portanto $\Delta^s f$ é progressão de ordem $p-s$.
+
+\end{proof}
+
+
+\subsection{Soma dos termos de uma P.A de ordem $p$}
+
+
+\begin{propi}
+Seja $f$ uma $P.A$ de ordem $p$, então a soma dos seus termos é dada por
+$$
+\sum^{b}_{n=a} f(n)=\sum^{p}_{k=0} \bigg({b+1 \choose k+1} - {a \choose k+1} \bigg)\Delta^{k} f(0)$$
+em especial
+$$ \sum^{b}_{n=0} f(n)=\sum^{p}_{k=0} {b+1 \choose k+1}\Delta^{k} f(0). $$
+\end{propi}
+
+
+
+
+
+
+\begin{proof}
+
+
+\end{proof}
+Vamos calcular o somatório indefinido
+
+$$ \sum_{n} f(n)=\sum_{n} \sum^{p}_{k=0}{n \choose k}\Delta^{k} f(0)=\sum^{p}_{k=0}\sum_{n} {n \choose k}\Delta^{k} f(0).$$
+
+Como temos $\sum\limits_{n} {n \choose k}=\sum
+\frac{n^{(k,1)}}{k!}=\frac{n^{(k+1,1)}}{(k+1)(k)!}=\frac{n^{(k+1,1)}}{(k+1)!}={
+n \choose k+1}$, temos
+
+
+$$ \sum_{n} f(n)=\sum^{p}_{k=0} {n \choose k+1}\Delta^{k} f(0),$$
+aplicando  limites temos
+$$ \sum^{b}_{n=a} f(n)=\sum^{p}_{k=0} {n \choose k+1}\bigg]^{b+1}_{a}\Delta^{k} f(0),$$
+em especial se $a=0$
+$$ \sum^{b}_{n=0} f(n)=\sum^{p}_{k=0} {n \choose k+1}\bigg]^{b+1}_{0}\Delta^{k} f(0),$$
+temos que
+$$ {n \choose k+1}\bigg]^{b+1}_{0}={b+1 \choose k+1}-{0 \choose k+1}={b+1 \choose k+1}$$
+
+ficamos com
+$$ \sum^{b}_{n=0} f(n)=\sum^{p}_{k=0} {b+1 \choose k+1}\Delta^{k} f(0). $$
+
+\subsection{Deslocando as Condições Iniciais}
+Se quisermos começar a progressão a partir de $g(1)$ e não
+de $f(0)$, tomamos $g(1)=f(0)$ e $g(n+1)=f(n)$ para todo $n$ assim
+ficamos com $g(n)=f(n-1)$
+$$g(n)= f(n-1)=\sum^{p}_{k=0}{n-1 \choose k}\Delta^{k} g(1).$$
+
+$$g(n)=\sum^{p}_{k=0}{n-1 \choose k}\Delta^{k} g(1) $$
+
+Se quisermos começar a progressão a partir de
+$h(n_{0})=f(0)$, basta tomar $h(n+n_{0})=f(n)$ assim ficamos com
+$h(n)=f(n-n_{0})$
+
+$$h(n)= f(n-n_{0})=\sum^{p}_{k=0}{n-n_{0} \choose k}\Delta^{k} h(n_{0}).$$
+
+$$h(n)=\sum^{p}_{k=0}{n-n_{0} \choose k}\Delta^{k} h(n_{0}). $$
+
+
+
+
+  %exerc\'icios
+
+  %mostre que os n\'umeros da sequ\^encia de fibonacci são primos
+  %entre si (n\'umeros de fibonacci maiores que 1)
+
+  %$2$ e $3$ são primos entre si
+  %seja agora $f(n)$ e $f(n+1$ primos entre si, então existem $a$
+  %e  $b$ tais que
+  %$$af(n)+bf(n+1)=1 $$
+  %vamos provar agora que
+  %$f(n+2$ e $f(n+1$ são primos entre si, existindo $a'$ e $b'$
+  %tais que
+  %$$a'f(n+2)+b'f(n+1)=1 $$
+  %Podemos tomar $a'=a$ e $b'=b-a$ e com a recorr\^encia dos
+  %n\'umeros de fibonaci $f(n+2)=f(n+1)+f(n) $
+  %$$af(n+2)+(b-a)f(n+1)=af(n+1)+af(n)+bf(n+1)-af(n+1)=af(n)+bf(n+1)=1 $$
+
+  %mostre que a sequ\^encia $f(n)=$maior inteiro que não supera
+  %$n$ obedece a recorr\^encia
+  %$$f(n+3)=f(n+2)+f(n+1)-f(n) $$
+  %com condições iniciais
+  %$$ f(0)=f(1)=0$$
+  %e
+  %$$f(2)=1 $$
+  %ache a f\'ormula geral
+  %$$f(n)=\frac{2n-1+(-1)^{n}}{4} $$
+
+
+  %Considere a sequ\^encia não-decrescente de inteiros positivos
+%$$1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5,...$$ na qual cada
+%inteiro positivo $n$ aparece exatamente $n$ vezes. Qual \'e o resto
+%da divisão por 5 do 2002º termo dessa sequ\^encia?
+
+
+%os n\'umeros da forma $f(n)=n+(n-1)(n-2)/2$
+
+%os n\'umeros da sequ\^encia $g(n)$ $g(f(n)) até g(f(n+1)-1)$ são
+%iguais a $n$.
+
+
+%sabendo disso tomando
+
+%$f(63)=1954$ e $f(64)=2017$ então os n\'umeros de ordem 1951
+%at\'e 2016 na sequ\^encia são iguais a 63 63 deixa resto 3 na
+%divisão por 5, logo o resto seria 3
+
+
+
+\section{Progressões e Séries}
+
+Vejamos alguns problemas de progressões aritméticas e séries.
+
+\begin{exem}
+Calcule o valor para o qual converge a série, sabendo que o denominador da seguinte soma está em $P.A$ de ordem $2$
+$$\frac{1}{10}+\frac{1}{18}+\frac{1}{28} \dots $$
+
+Sendo de ordem $2$, tomamos as diferenças
+$$10\;\;\;\;\;\;\;18\;\;\;\;\;\;\;\;\;28 $$
+$$ \;\;8\;\;\;\;\;10$$
+$$ \;\;\;\;\;2$$
+e começamos com $k=0$,
+
+logo a sequência se escreve como
+$$f(k)=10+8(k)+2\frac{(k)(k-1)}{2}=10+8k+k^{2}-k=10+7k+k^{2} $$
+procuramos fatorar a expressão, $10+7k+k^{2}=(k+2)(k+5)$, então a série é
+$$\sum^{\infty}_{k=0}\frac{1}{(k+2)(k+5)}= \sum^{\infty}_{k=2}\frac{1}{(k)(k+3)}=\sum^{\infty}_{k=1}\frac{1}{(k)(k+3)}-\frac{1}{4}$$
+a última série tem valor conhecido que é $\frac{H_{3}}{3}=11/18$
+logo a série tem valor $11/18 - \frac{1}{4}=\frac{13}{36}$.
+Foi usado o resultado
+$$\sum^{\infty}_{k=1}\frac{1}{(k)(k+p)}=\frac{H_{p}}{p} $$
+onde $H_{p}$ é o $p$-ésimo número harmônico, se $p$ natural
+$$H_{p}=\sum^{p}_{k=1}\frac{1}{k}. $$
+
+
+\end{exem}
+
+
+
+
+\section{Progressão Aritm\'etica de Ordem \(1\)-P.A}
+
+
+\begin{defi}[Progressão aritm\'etica-P.A]
+Progressão aritm\'etica é a sequência $(a_n)$ que satisfaz a equação de diferença
+
+$$\Delta a ( n)=r $$
+onde $r$ é um real qualquer, nesse caso podendo ser nulo   %da progressão aritm\'etica de ordem $1$
+%que \'e chamada apenas de progressão aritm\'etica.
+.Temos
+na progressão aritm\'etica $ a(n+1)-a(n)=r$, a diferença
+entre termos consecutivos \'e uma constante, chamada de razão da progressão aritmética. O número $n$ em $a(n)$ é chamado de índice da sequência e $a(n)$ de $n$-ésimo termo. Podemos simbolizar tanto o $n$-ésimo termo tanto por $a_n$ quanto por $a(n).$
+
+Com nossa definição uma $P.A$ engloba as progressões aritméticas de ordem $1$, onde $\Delta a_n = r \neq 0$ , progressões aritméticas de ordem $0$ onde $\Delta a_n= 0$ e ainda a sequência identicamente nula $x_n=0\; \fa n$.
+
+\end{defi}
+
+\begin{cor}\hfill
+
+\begin{itemize}
+  \item Se $r=0$ a sequência é constante.
+  \item Se $r<0$ então a sequência é decrescente.
+  \item Se $r>0$ a sequência é crescente.
+\end{itemize}
+
+
+
+
+
+\end{cor}
+
+\begin{cor}
+Numa P.A vale a identidade
+$$r(n-p)=a(n)-a(p) ,$$ pois
+aplicando o somat\'orio na definição temos
+$$ \sum^{n-1}_{k=p}\Delta a(k)=\sum^{n-1}_{k=p}r=r(n-p)=a(n)-a(p),$$
+
+ tomando $p=1$ segue
+$$a(n)-a(1)=r(n-1)\Longrightarrow a (n)=a(1)+(n-1)r $$
+$$a (n)=a(1)+(n-1)r  $$
+que é a expressão geral da P.A em função do primeiro termo $a_1.$
+\end{cor}
+
+
+
+
+
+\begin{cor}[Condição de alinhamento]
+Da identidade
+$$r(n-p)=a(n)-a(p)$$
+se $n \neq p$ podemos escrever
+$$r=\frac{a(n)-a(p)}{n-p}. $$
+Tomando dois outros termos de índices distintos $a(s)$ e $a(t)$, vale que
+$$\frac{a(s)-a(t)}{s-t}=r=\frac{a(n)-a(p)}{n-p}  $$
+se $a(n) \neq a(p)$ vale também
+$$ \frac{a(s)-a(t)}{a(n)-a(p)}= \frac{s-t}{n-p}.$$
+Isto é, $ \frac{a(s)-a(t)}{a(n)-a(p)}$ é  sempre um número racional  nessas condições.
+
+
+\end{cor}
+%Assim como nas progressões geom\'etricas $f(n)$ pode escrito como
+%$a_{n}$ e o termo inicial dado pode ser um $a_{1}=f(1)$, temos
+%então
+
+\begin{exem}
+Alguns exemplos de progressões aritm\'eticas. \\$a_{1}=0,r=3$
+$$(0,3,6,9...) $$
+$a_{1}=-2,r=5$
+$$(-2,3,8,13,18,...) $$
+$a_{1}=7,r=-1$
+$$(7,6,5,4,3,...) $$
+
+\end{exem}
+
+\subsubsection{Soma de Termos da Progressão Aritmética}
+
+$$\sum^{c}_{k=b}a_{k}=\sum^{c}_{k=b}a_{1}+(k-1)\C r=a_{1}\sum^{c}_{k=b}k^{(0,1)}+r\sum^{c}_{b}(k-1)=a1\C k+r\frac{(k-1)^{(2,1)}}{2}\bigg]^{\;c+1}_{b}$$
+$$=a_{1}k+r{k-1 \choose 2} \bigg]^{\;c+1}_{b}=a_{1}{k \choose 1}+r{k-1 \choose 2} \bigg]^{\;c+1}_{b}.$$
+Se tomarmos o limite $b=1$ e $c=n$
+
+
+\begin{equation*}
+\begin{array}{lllllllllll}
+\de  S_n=a_{1}{k \choose 1}+r{k-1 \choose 2} \bigg]^{\;n+1}_{1}=a_{1}{n+1 \choose 1}+r{n \choose 2}-a_{1}{1 \choose 1}=a_{1}{n \choose 1}+r{n \choose 2} \\
+[20pt] \de  \phantom{S_n } =a_{1}n+\frac{n(n-1)}{2}r. \\
+\end{array}
+\end{equation*}%°
+
+Como temos $a_{n}=a_{1}+(n-1)\C r$, na f\'ormula soma colocando $n$ em
+evid\^encia
+$$n\left(a_{1}+\frac{(n-1)}{2} \right)=n\left(\frac{a_{1}+a_{1}+(n-1)}{2} \right)=n\left(\frac{a_{1}+a_{n}}{2} \right)=S_n. $$
+
+\subsubsection{M\'etodo de Gauss}
+
+No cap\'itulo de Definições, falamos sobre um m\'etodo de
+achar a soma dos primeiros $n$ n\'umeros naturais, agora usando
+apenas as propriedades de somat\'orio vamos deduzir o mesmo
+resultado, queremos mostrar que
+$$\sum^{n}_{k=0} k =\frac{n(n+1)}{2} $$
+apenas manipulando o somat\'orio, pela propriedade de mudança de
+ordem temos
+$$\sum^{n}_{k=0} k =\sum^{n}_{k=0}(n- k) = \sum^{n}_{k=0}n- \sum^{n}_{k=0}k=n\sum^{n}_{k=0}1- \sum^{n}_{k=0}k=n(n+1)-\sum^{n}_{k=0}k$$
+assim
+$$ \sum^{n}_{k=0} k = n(n+1)-\sum^{n}_{k=0}k$$
+implicando
+$$2\sum^{n}_{k=0} k= n(n+1)$$
+e
+$$ \sum^{n}_{k=0} k=\frac{n(n+1)}{2}$$
+
+\begin{propi}
+Se $an+b$ admite valores naturais para todo $n$ natural, então $a$ e $b$ são naturais.
+
+\end{propi}
+
+\begin{proof}
+$b$ é natural pois $a0+b=b$ é natural. Se $a=0 $ então $a$ é natural, temos também que $a+b$ é natural  e $2a+b$ também. Ainda $2a+b>a+b$ , $2a+b-a-b=a$ que é natural.
+\end{proof}
+
+\begin{propi}
+Sejam os naturais divididos em $p$ progressões aritméticas cujos conjuntos dos seus termos são disjuntos, sejam $r_{1}, r_2, \ldots r_n$ as razões dessas $p$ progressões aritméticas, então
+$$\sum^{p-1}_{k=0}\frac{1}{r_{k}} =1.$$
+\end{propi}
+
+
+\begin{proof}(não consegui resolver, mostrar que $a(n,k)=pn+k$)
+Seja $v$ um número natural, pela divisão euclidiana por $p$ ele se escreve da forma $v=pn+k$ com $0\leq k\leq p-1$
+
+%Seja $A_{k}$ o conjunto dos termos da $k$-ésima p.a e o termo da $k$-ésima p.a  em função de $n$ dado por $a_{(n,k)}$  com $0\leq k\leq p-1$, vamos tomar que $0 \in A_{0}$, pela $p.a$ ser de grau $1$ em $n$ segue que $a_{(n,0)}=sn$, para algum $s$ natural. Suponha por absurdo que $s<p$ , os termos de $A_{0}$ serão todos aqueles que são congruentes a zero $mod \;s$ e dada um número natural $v$ ,qualquer, pela divisão euclidiana por $s$ ele deve ser escrito como $v=sn+k$ com $0\leq k\leq s-1$ %teremos no mínimo $s+1$ p.a's que serão da forma $f_{k}(n)=a_{k}n+t_{k}$, temos que $f_{k}(0)=t_{k}$  logo os valores de $t_{k}$ devem ser distintos e naturais %não podemos ter $1 \in A_{0}$ pois nesse caso $1=sn$ logo $\frac{1}{s}=n$, única possibilidade seria $s=1$ daí só existiria uma p.a e $p=1>1$, absurdo, então $s\neq 1$, logo tomamos $1 \in A_{1}$
+\end{proof}
+
+
+
+\begin{exem}
+Podem $\sqrt{2}, \sqrt{3}$ e $\sqrt{5}$ serem termos de uma mesma progressão aritmética?
+Suponha que sim, então temos $a_n=\sqrt{2}$, $a_p=\sqrt{3}$ e $a_r=\sqrt{5}$, deve valer a condição de alinhamento, logo
+
+\begin{equation*}
+\begin{array}{lllllllllll}
+\de \frac{\sqrt{2}-\sqrt{3}}{\sqrt{3}-\sqrt{5}}=c \Rightarrow \sqrt{2}-\sqrt{3}=c\sqrt{3}-c\sqrt{5} \\
+[18pt] \de  \sqrt{2}+c\sqrt{5}=\underbrace{(c+1)}_{t}\sqrt{3}\Rightarrow \sqrt{2}+c\sqrt{5}=t\sqrt{3}.  \\
+\end{array}
+\end{equation*}%°
+Elevando ao quadrado ambos membros tem-se (com $u=t^2 \C3$)
+$$2+2\sqrt{10}c+5=u \Rightarrow \sqrt{10}=\frac{v}{2c} $$
+como $\frac{v}{2c}$ é racional e $\sqrt{10}$ é irracional, chegamos num absurdo.
+
+\end{exem}
+
+
+
+\begin{exem}
+Se $(\frac{1}{x+y},\frac{1}{z+y}, \frac{1}{x+z})$ estão em $P.A$ então $(z^2, x^2, y^2)$ também estão em $P.A$.
+Temos que mostrar que $x^2-z^2=y^2-x^2.$
+Pela primeira sequência estar em $P.A$ temos que
+$$\frac{1}{z+y}-\frac{1}{x+y}= \frac{1}{x+z}- \frac{1}{z+y} $$
+$$\frac{x+y-z-y}{(z+y)(x+y)} =\frac{z+y-x-z}{(x+z)(z+y)} \Rightarrow  $$
+cancelando $z+y$ no numerador temos
+$$ \frac{x-z}{(x+y)} =\frac{y-x}{(x+z)} \Rightarrow (x+z)(x-z)= (y+x)(y-x)$$
+desenvolvendo  tem-se $x^2-z^2=y^2-x^2.$
+\end{exem}
+
+\begin{exem}
+Se $(a,b,c)$ e $(\frac{1}{b},\frac{1}{c},\frac{1}{d})$ estão em $P.A$ então $2ad=c(c+a)$.
+
+
+Da primeira $P.A$ temos $b-a=c-b$ logo $2b=c+a$ , $\frac{1}{b} = \frac{2}{c+a}$ da segunda temos $\frac{1}{c}-\frac{1}{b}= \frac{1}{d}- \frac{1}{c}$ daí
+$$\frac{2}{c}-\frac{1}{b}=\frac{1}{d} \Rightarrow \frac{2}{c}-\frac{2}{c+a}=\frac{2a}{c(c+a)}=\frac{1}{d} \Rightarrow 2ad =c(c+a).  $$
+
+\end{exem}
+
+
+\begin{propi}
+Se $(x,y,z)$ e $(\frac{1}{x},\frac{1}{y}, \frac{1}{z})$ estão em $P.A$ então $x=y=z$ e a progressão é constante.
+
+\end{propi}
+
+
+
+
+
+
+\begin{proof}
+Temos $y-x=z-y=r $ e
+$$\frac{1}{y}- \frac{1}{x}= \frac{1}{z}- \frac{1}{y}\Rightarrow  \frac{x-y}{yx}= \frac{y-z}{zy}\Rightarrow \frac{-r}{x}=\frac{-r}{z}$$
+ daí $zr=xr$, se $r=0$ segue o desejado, se $r \neq 0$ então $z=x$ e da primeira progressão $y-x=x-y \Rightarrow 2y =2x \Rightarrow x=y=z$ logo $r=0$ o que é absurdo. Então $r=0$.
+
+\end{proof}
+
+
+\begin{exem}
+Se $(x,y,z)$ e $(x^3, y^3, z^3)$ estão em $P.A$ então a razão da primeira $P.A$ é $0$ ou $-x$.
+
+
+Vale que $y-x=z-y=r$, se $r=0$ nada temos a fazer, suponha que não seja nulo, então
+
+\begin{equation*}
+\begin{array}{lllllllllll}
+\de y^3-x^3= z^3-y^3,  \\
+[12pt] \de  (y-x)(y^2+yx+x^2)=(z-y)(z^2+yz+y^2),  \\
+[12pt] \de     yx+x^2=z^2+yz, \\
+[12pt] \de   z^2-x^2=y (x-z), \\
+[12pt] \de  (z-x)(z+x)=y (x-z)\Rightarrow  z+x=-y . \\
+\end{array}
+\end{equation*}%°
+Portanto
+$y=-z-x$ e daí da identidade \(y-x=z-y\) segue que $-z-x-x=z+z+x $  o que implica $ 3z=-3x $   e daí $z=-x$ o que  usando novamente \(y-x=z-y\) garante que $y=0.$ A P.A nesse caso é \((x,0,z)\)  de onde segue que a razão é \(-x\).
+
+\end{exem}
+
+
+\begin{propi}
+Uma progressão aritmética é uma sequência injetora $\Leftrightarrow$ $r \neq 0$,  a razão é não nula.
+
+\end{propi}
+
+
+
+
+
+
+\begin{proof}
+$\Rightarrow ) .$
+Por contrapositiva se $r=0$ então $a_n=a_1+(n-1)r=a_1$, todo $a_n$ assume valor $a_1$, logo a sequência não é injetora.
+
+$\Leftarrow )$
+ Suponha $r \neq 0$ , então, existem $n$, $ m$ tais que $a_n=a_m$ então
+$$a_1+(n-1)r=a_1+(m-1)r  \Rightarrow n=m$$
+ logo é injetora.
+
+\end{proof}
+
+\begin{cor}
+Se a $P.A$ repete termos, não importando a ordem então a razão é nula e a sequência é constante. Uma $P.A$ não pode repetir termos distintos.
+\end{cor}
+
+
+
+\begin{exem}
+Uma $P.A$ de números naturais de razão não nula sempre tem termos compostos , pois
+$$a_{(n+1)}=a_1+nr$$
+vale que  $r =a_2-a_1 \in \mathbb{Z}$ se $a_1$ é não nulo, tomamos $n=a_1t, t >2$ daí $a_1+a_1tr=a_1(1+tr)$, para que esse número fosse não fosse composto deveríamos ter $1+tr=1$, daí $tr=0$ o que não acontece ou $1+tr=-1$, $tr=-2$ o que não acontece pois $t>2.$
+
+Se $a_1=0$, tomamos $n=2\C3$, $a_{n+1}=2\C3\C r$ é um número composto.
+
+\end{exem}
+
+
+
+\begin{exem}[IME-1964]
+Se em uma $P.A$ vale $a_m+a_n=a_p+a_q$ então
+
+\begin{equation*}
+\begin{array}{lllllllllll}
+\de a_1+(m-1)r+a_1+(n-1)r=a_1+(p-1)r+a_1+(q-1)r , \\
+[12pt] \de  (m+n)r=(p+q)r.  \\
+\end{array}
+\end{equation*}%°
+
+Se $r=0$ a identidade vale independente de $m,n, p $ e $q$, se não, deve valer $m+n=p+q.$
+
+\end{exem}
+
+
+\begin{propi}
+Uma progressão aritmética infinita de razão não nula, não pode possuir todos termos quadrados perfeitos.
+
+\end{propi}
+
+
+
+
+
+
+\begin{proof}
+
+Todo quadrado perfeito é positivo, a progressão aritmética deve ser crescente, pois não existe sequência infinita decrescente de números naturais.
+
+Vamos mostrar que vale sempre $a_n \geq (n-1)^2$ nessas condições. Para $n=1$ o valor mínimo de $a_1$ é $0$, onde vale a desigualdade.  Suponha validade para $n$, vamos mostrar para $n+1$, sabemos que $a_n \geq (n-1)^2$, como $a_{n+1} > a_{n}$ então $a_{n+1}> (n-1)^2$ o que implica $a_{n+1} \geq n^2$, pois $n^2$ é o próximo quadrado perfeito.
+
+Com isso chegamos em um absurdo, pois não pode valer
+$$a_{n+1}=a_1+nr \geq n^2, \fa n $$
+pois o crescimento de $n^2$ é maio que de funções lineares.
+\end{proof}
+
+
+
+
+\begin{exem}
+Dada uma $P.A$ de termo geral $a_n$ sabemos que vale $\Delta a_n=r $ logo $\Delta ^2 a_ n=0$, em geral
+
+$$\Delta^p a_n=0 $$
+para $p>1$ , substituindo $\Delta=E-1$ onde $E^t a_ n= a_{n+t}$ temos que
+
+
+
+\begin{equation*}
+\begin{array}{lllllllllll}
+\de \Delta^p a_n= (E-1)^p a_n=\sum^{p}_{k=0}{p \choose k} (-1)^{p-k}E^k a_ n  \\
+[12pt] \de \phantom{ \Delta^p a_n} =\sum^{p}_{k=0}{p \choose k} (-1)^{p-k} a_{n+k}=0.  \\
+\end{array}
+\end{equation*}%°
+
+
+Então vale:
+$$ \sum^{p}_{k=0}{p \choose k} (-1)^{p-k} a_{n+k}=0\; \fa n \in \mathbb{Z},\; p>1$$
+em especial sabemos que em uma $P.A$ de ordem $s$ de termo geral $a_n$ vale $\Delta^s a_n=r \neq 0$ e  $\Delta^p a_n=0\; \fa n \in \mathbb{Z}, p>s$
+e temos a generalização
+$$ \sum^{p}_{k=0}{p \choose k} (-1)^{p-k} a_{n+k}=0\; \fa n \in \mathbb{Z},\; p>s$$
+onde $s$ é a ordem da $P.A$.
+\end{exem}
+
+%obmep
+\begin{exem}[OBMEP]
+Uma urna contém $2012$ cartões. Cada cartão recebeu um número diferente, a partir do número $1$ até o $2012$. Retiram-se dois cartões ao acaso e somam-se os números dos cartões. Quantos são os números ímpares que podem ser obtidos dessa maneira?
+
+\so
+
+O menor número é $3$ pois o menor número $1+1=2$ o próximo $2+1=3 .$ O maior número é a soma $2012+2011=4023.$
+
+Pensamos na progressão aritmética.
+$$a_1=3\;\;a_n=4023=3+(n-1)2 \Rightarrow n-1=2010 $$
+
+logo temos $2011$ números ímpares obtidos dessa maneira.
+\end{exem}
+
+
+
+%obmep
+
+
+\begin{exem}[OBMEP]
+
+Uma urna contém $73$ bolinhas numeradas sequencialmente. Se a primeira bolinha é a de número $254$, qual é o número da última bolinha?
+
+\so
+Aplicamos uma $P.A$ com
+$a_1=254$, $r=1$ e e $n=73$ logo $a_{73}=254 +(73-1)=254 +72=326$.
+\end{exem}
+
+
+
+\section{Transformação de P.A Por Funções }
+
+
+\subsection{Transformação de P.A Por função Afim}
+
+\begin{propi}
+Se $f(x)=ax+b,\; f:\re \rar \re$, então a imagem de $f$ por uma progressão aritmética ainda é uma progressão aritmética de razão $r_f=a\cdot r$ e primeiro termo $b_1=aa_1+b.$
+\end{propi}
+
+\begin{proof}
+Seja $a_n$ o termo de uma P.A, ela é da forma $a_n=a_1+(n-1)r$, aplicando $f$ temos
+$$f(a_n)=aa_n+b=aa_1+(n-1)ar+b=(aa_1+b)+(n-1).ar=b_1+(n-1)r_f, $$
+onde $r_f=ar$ e $b_1=aa_1+b.$
+\end{proof}
+
+
+\begin{exem}
+Se uma progressão aritmética  de razão $r=2$ e primeiro termo $a_1=1$ é transformado numa progressão arimética de primeiro termo $b_1=4$ e razão $r_1=6$ por uma função afim $f(x)=ax+b$, então, quanto vale $f(2)$?.
+
+
+Pelas expressões do resultado anterior temos que
+$$b_1= aa_1+b,\; r_f=ar,$$
+substituindo $b_1=4$, $r_1=6$, $r=2$ e $a_1=1$ obtemos,
+$$4= a+b,\; 6=2a, $$
+logo $a=3$, que substituindo na primeira identidade resulta em
+$$ 4=3+b \Rightarrow b=1.$$
+De posse de $a=3$ e $b=1$ reconstruímos a função afim,
+$$f(x)=3x+1, $$
+e daí
+$$f(2)=7. $$
+\end{exem}
+
+Tal exemplo motiva o seguinte resultado.
+
+\begin{propi}
+Se $r \neq 0$ então  dada a transformação por $f(x)=ax+b$
+$$a_1+(n-1)r \rar_f b_1+(n-1)r_1,$$
+com $r_f, \;b_1$ , $r$ e $a_1$ conhecidos, podemos deduzir os valores de $a$ e $b$, que são dados por
+$$a= \frac{r_f}{r} \mb{ e } b=b_1-\frac{r_f}{r}a_1. $$
+\end{propi}
+
+\begin{proof}
+
+São dados $r_f, \;b_1$ , $r$ e $a_1$.
+Temos
+$$r_f=ar,\; b_1=aa_1+b, $$
+substituindo $a= \frac{r_f}{r}$ na segunda equação temos
+$$b_1=\frac{r_f}{r}a_1+b\Rightarrow b=b_1-\frac{r_f}{r}a_1.  $$
+
+Por isso temos
+$$f(x)=ax+b $$
+com
+$$a= \frac{r_f}{r} \mb{ e } b=b_1-\frac{r_f}{r}a_1. $$
+
+
+\end{proof}
+
+
+
+\begin{propi}
+
+ Em uma P.A com número ímpar de termos o termo médio é igual a diferença da soma dos termos de ordem ímpar com soma de termos de ordem par.
+
+
+ Em símbolos, seja a progressão aritmética de termos
+ $$a_1 \ldots a_{n+1} \ldots a_{2n+1}. $$
+ $a_{n+1}$ é o termo médio pois, até $a_{n+1}$ temos $n$ termos ($a_1$, \ldots, $a_n$) e dele até $a_{2n+1}$ temos mais $n$ termos
+ $$\underbrace{a_{n+2} }_{_{b_1}}, \ldots,\;\underbrace{a_{n+k+1} }_{_{b_k}} ,\; \ldots \underbrace{a_{2n+1}}_{b_{n}}.$$
+
+ A proposição diz que
+ $$a_{n+1}=\sum^{n}_{k=0}a_{2k+1} - \sum^{n}_{k=1}a_{2k}. $$
+\end{propi}
+
+\begin{proof}
+Vamos provar o resultado, abrimos o primeiro termo do somatório dos termos ímpares,
+$$D=\sum^{n}_{k=0}a_{2k+1} - \sum^{n}_{k=1}a_{2k} =a_1 + \sum^{n}_{k=1}a_{2k+1} - \sum^{n}_{k=1}a_{2k}. $$
+Usando que $a_k=a_1+(k-1)r$ e juntando os somatórios temos
+
+\begin{equation*}
+\begin{array}{lllllllllll}
+\de D=a_1 + \sum^{n}_{k=1}a_1+(2k)r - \sum^{n}_{k=1}a_1+(2k-1)r  \\
+[12pt] \de \phantom{ D} = a_1 + \sum^{n}_{k=1}a_1+(2k)r -a_1 -(2k-1)r = a_1+\sum^{n}_{k=1}r=a_1+nr=a_{n+1}.  \\
+\end{array}
+\end{equation*}%°
+Como queríamos provar.
+\end{proof}
+
+
+\section{Notações Para P.A Especiais}
+
+
+Algumas notações para progressões aritméticas nos ajudam a resolver exercícios, vejamos algumas delas:
+\begin{enumerate}
+\item P.A de \(3\) termos:
+\begin{equation*}
+\begin{array}{lllllllllll}
+\de (x,x+r,x+2r) \text{ ou } (x-r,x,x+r) \\
+\end{array}
+\end{equation*}%°
+
+\I P.A de \(4\) termos:
+\begin{equation*}
+\begin{array}{lllllllllll}
+\de (x,x+r,x+2r,x+3r) \text{ ou } (x-3y,x-y,x+y,x+3y) \\
+\end{array}
+\end{equation*}%°
+na última tomamos  \(y=\frac{r}{2}\);
+\I P.A de \(5\) termos:
+\begin{equation*}
+\begin{array}{lllllllllll}
+\de (x,x+r,x+2r,x+3r,x+4r) \text{ ou } (x-2r,x-r,x,x+r,x+2r) \\
+\end{array}
+\end{equation*}%°
+ 
+\end{enumerate}
+
+\end{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
